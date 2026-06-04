@@ -1,0 +1,28 @@
+.vs/
+bin/
+obj/
+*.user
+*.suo
+
+# Python service – downloaded images and generated metadata
+python_service/dataset/images/*.jpg
+python_service/dataset/images/*.jpeg
+python_service/dataset/images/*.png
+python_service/dataset/images/*.webp
+python_service/dataset/metadata/progress.json
+
+
+# Python cache / venv
+python_service/__pycache__/
+python_service/**/__pycache__/
+python_service/.venv/
+python_service/*.egg-info/
+python_service/.pytest_cache/
+# Python virtual environments
+python_service/.venv311/
+.venv311/
+.venv/
+venv/
+
+# Python compiled files
+*.pyc

@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  image-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: smartkitchen-image-service:latest
+    container_name: sk_image_service
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      # Persist downloaded images and progress.json across restarts
+      - ./dataset:/app/dataset
+    environment:
+      - SELENIUM_HEADLESS=true
+      - PORT=8000
+      - LOG_LEVEL=INFO
+      - BATCH_SIZE=50
+      - MAX_WORKERS=4
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    # Give Chrome enough shared memory to avoid tab crashes
+    shm_size: "2gb"

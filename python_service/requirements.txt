@@ -1,0 +1,23 @@
+# ── Core framework ────────────────────────────────────────────────────────────
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+pydantic==2.7.1
+python-multipart==0.0.22       # required for UploadFile / Form data in FastAPI
+
+# ── HTTP / async I/O ──────────────────────────────────────────────────────────
+aiohttp==3.13.3
+aiofiles==23.2.1
+
+
+
+# ── Image processing ──────────────────────────────────────────────────────────
+Pillow==12.2.0
+opencv-python-headless==4.9.0.80   # headless build – no GUI dependencies
+
+# ── Data handling ─────────────────────────────────────────────────────────────
+pandas==2.2.2                  # optional: used by advanced CSV utilities
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+numpy==1.26.4
+httpx==0.27.0                  # used in tests / optional HTTP client
+ddgs==9.14.2
